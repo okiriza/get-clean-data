@@ -15,7 +15,7 @@ This file contains cleaned up Samsung data based on the following instructions:
 3. Activities are assigned names ("WALKING", "WALKING UPSTAIRS", etc) instead of numbers. They are also added as a column to the merged dataset.
 4. Column names are added to the dataset.
  
-`mean.std.txt` can be read into R with the command `read.table('mean.std.txt', header=T)` as a data frame with 10,299 rows and 563 columns (66 measurements + subject + activity columns).
+`mean.std.txt` can be read into R with the command `read.table('mean.std.txt', header=T)` as a data frame with 10,299 rows and 68 columns (66 measurements + subject + activity columns).
 
 ### Processes and transformations for obtaining mean.std.txt
 
