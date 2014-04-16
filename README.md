@@ -19,7 +19,7 @@ run_analysis.R
 Along with `assign.unique.name.R`, it should be put in the main directory of Samsung data (i.e. in the same directory with `activity_labels.txt`, `features.txt`, `features_info.txt`, and `train` and `test` directories).
 
 At the end of execution it will write the tidied up datasets to file `full.txt` and `full.averaged.txt`.
-- `full.txt` contains all training and test data, but only with variables whose name contains "mean()" or "std()".
+- `mean.std.txt` contains merged training and test data, but only with variables whose name contains "mean()" or "std()".
 - `full.averaged.txt` contains average of all variables grouped by subject and activity (one row per each combination of subject and activity).
 
 assign.unique.name.R
