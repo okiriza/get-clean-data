@@ -50,14 +50,14 @@ var.names = c('subject', var.names, 'activity')
 # (4) Set variable names
 colnames(full) = var.names
 
+# (3) Cast activity as factor and use descriptive names
+act.labels = read.table('activity_labels.txt', colClasses='character')[, 2]
+levels(full[, 'activity']) = act.labels
+
 # (2) Extract only variables whose name contains "mean()" or "std()"
 # The 1 and N.variable in correspond to subject and activity variables, respectively
 mean.std.vars = which(sapply(var.names, grepl, pattern='mean\\(\\)|std\\(\\)', ignore.case=T))
 mean.std.data = full[, c(1, mean.std.vars, N.variable)]
-
-# (3) Cast activity as factor and use descriptive names
-act.labels = read.table('activity_labels.txt', colClasses='character')[, 2]
-levels(full[, 'activity']) = act.labels
 
 # (5) Use melt() and dcast() from reshape2 to get the mean for each variable,
 #     per activity and per subject
@@ -66,5 +66,5 @@ full.averaged = dcast(full.melt, subject + activity ~ variable, mean)
 
 # Write the two datasets to local files
 # Also include column names
-write.table(full, 'full.txt', col.names=T, row.names=F, sep='\t')
+write.table(mean.std.data, 'mean.std.txt', col.names=T, row.names=F, sep='\t')
 write.table(full.averaged, 'full.averaged.txt', col.names=T, row.names=F, sep='\t')
